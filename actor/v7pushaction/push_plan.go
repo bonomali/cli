@@ -57,6 +57,7 @@ type FlagOverrides struct {
 	ProvidedAppPath     string
 	SkipRouteCreation   bool
 	StartCommand        types.FilteredString
+	Strategy            string
 }
 
 func (state PushPlan) String() string {

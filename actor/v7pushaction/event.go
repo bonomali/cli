@@ -20,6 +20,7 @@ const (
 	ReadingArchive                  Event = "reading archive"
 	ResourceMatching                Event = "resource matching"
 	RestartingApplication           Event = "restarting application"
+	StartingDeployment              Event = "starting deployment"
 	RestartingApplicationComplete   Event = "restarting application complete"
 	RetryUpload                     Event = "retry upload"
 	ScaleWebProcess                 Event = "scaling the web process"
