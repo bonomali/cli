@@ -8,7 +8,7 @@ import (
 	. "github.com/onsi/gomega/gexec"
 )
 
-var _ = Describe("push with --strategy rolling", func() {
+var _ = FDescribe("push with --strategy rolling", func() {
 	var (
 		appName  string
 		userName string

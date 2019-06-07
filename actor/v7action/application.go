@@ -1,6 +1,7 @@
 package v7action
 
 import (
+	"errors"
 	"time"
 
 	"code.cloudfoundry.org/cli/actor/actionerror"
@@ -190,8 +191,101 @@ func (actor Actor) PollStart(appGUID string) (Warnings, error) {
 }
 
 func (actor Actor) PollStartForRolling(appGUID string, deploymentGUID string) (Warnings, error) {
+
+	var allWarnings Warnings
+
 	processes, warnings, err := actor.CloudControllerClient.GetNewApplicationProcesses(appGUID, deploymentGUID)
-	return actor.pollForProcesses(processes, warnings, err)
+	allWarnings = append(allWarnings, warnings...)
+
+	v3warnings, err := actor.pollForProcesses(processes, warnings, err)
+	allWarnings = append(allWarnings, v3warnings...)
+	if err != nil {
+		return allWarnings, err
+	}
+
+	allProcesses, warnings, err := actor.CloudControllerClient.GetApplicationProcesses(appGUID)
+	allWarnings = append(allWarnings, warnings...)
+	if err != nil {
+		return allWarnings, err
+	}
+	nonWebProcesses := []ccv3.Process{}
+	for _, process := range allProcesses {
+		if process.Type != constant.ProcessTypeWeb {
+			nonWebProcesses = append(nonWebProcesses, process)
+		}
+	}
+	pollingWarnings, err := actor.pollForProcesses(nonWebProcesses, warnings, err)
+	allWarnings = append(allWarnings, pollingWarnings...)
+	return allWarnings, nil
+}
+
+func (actor Actor) BadPollStartForRolling(appGUID string, deploymentGUID string) (Warnings, error) {
+	deploymentWarnings, err := actor.pollDeployment(deploymentGUID)
+	var allWarnings Warnings
+	allWarnings = append(allWarnings, deploymentWarnings...)
+	if err != nil {
+		//if _, ok := err.(actionerror.StartupTimeoutError); ok {
+		//	err = nil
+		//}
+		allWarnings = append(allWarnings, err.Error())
+		return allWarnings, nil
+	}
+	// There are no temporary WEB-like processes at this point. So we can ignore WEB processes
+	allProcesses, warnings, err := actor.CloudControllerClient.GetApplicationProcesses(appGUID)
+
+	allWarnings = append(allWarnings, warnings...)
+	if err != nil {
+		return allWarnings, err
+	}
+	nonWebProcesses := []ccv3.Process{}
+	for _, process := range allProcesses {
+		if process.Type != constant.ProcessTypeWeb {
+			nonWebProcesses = append(nonWebProcesses, process)
+		}
+	}
+	pollingWarnings, err := actor.pollForProcesses(nonWebProcesses, warnings, err)
+	if err != nil {
+		allWarnings = append(allWarnings, err.Error())
+	}
+	allWarnings = append(allWarnings, pollingWarnings...)
+	//if _, ok := err.(actionerror.StartupTimeoutError); ok {
+	//	err = nil
+	//}
+	return allWarnings, nil
+}
+
+func (actor Actor) getDeploymentState(deploymentGUID string) (constant.DeploymentState, Warnings, error) {
+	deployment, warnings, err := actor.CloudControllerClient.GetDeployment(deploymentGUID)
+	if err != nil {
+		return "", Warnings(warnings), err
+	}
+	return deployment.State, Warnings(warnings), nil
+}
+
+func (actor Actor) pollDeployment(deploymentGUID string) (Warnings, error) {
+	var allWarnings Warnings
+
+	timeout := time.Now().Add(actor.Config.StartupTimeout())
+	for time.Now().Before(timeout) {
+		deploymentState, warnings, err := actor.getDeploymentState(deploymentGUID)
+		allWarnings = append(allWarnings, warnings...)
+		if err != nil {
+			return allWarnings, err
+		}
+		switch deploymentState {
+		case constant.DeploymentDeployed:
+			return allWarnings, nil
+		case constant.DeploymentCanceled:
+			return allWarnings, errors.New("Deployment has been canceled")
+		case constant.DeploymentFailed:
+			return allWarnings, errors.New("Deployment has failed")
+		case constant.DeploymentDeploying:
+		case constant.DeploymentFailing:
+		case constant.DeploymentCanceling:
+			time.Sleep(actor.Config.PollingInterval())
+		}
+	}
+	return allWarnings, actionerror.StartupTimeoutError{}
 }
 
 // UpdateApplication updates the buildpacks on an application
