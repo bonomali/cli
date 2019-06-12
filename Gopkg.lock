@@ -24,6 +24,18 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:3a37dbf0d1953b95ec5a13b9e1ba2a3c49fa46ba2b809dee2252017746be444b"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+  ]
+  pruneopts = "NUT"
+  revision = "5f9ff16f99a0345f98f147765db0e36aef91c795"
+  version = "v6.45.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -526,12 +538,12 @@
   revision = "fe223c5a2583471b2791ca99e716c65b4a76117e"
 
 [[projects]]
-  digest = "1:30f55ee34f367e29620faaae69dcdf6b78a86348f3a1472cf63f2dbba0f9d4f7"
+  digest = "1:21562b59c496f4cbd7a40beaa257ac6761002dd3e36259f532216082abace8b1"
   name = "gopkg.in/cheggaaa/pb.v1"
   packages = ["."]
   pruneopts = "NUT"
-  revision = "1cc5bbe20449079337944d56292c7383510c534c"
-  version = "v1.0.27"
+  revision = "f907f6f5dd81f77c2bbc1cde92e4c5a04720cb11"
+  version = "v1.0.28"
 
 [[projects]]
   digest = "1:1b91ae0dc69a41d4c2ed23ea5cffb721ea63f5037ca4b81e6d6771fbb8f45129"
