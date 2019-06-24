@@ -32,6 +32,16 @@ type FakeManifestParser struct {
 	containsManifestReturnsOnCall map[int]struct {
 		result1 bool
 	}
+	ContainsMultipleAppsStub        func() bool
+	containsMultipleAppsMutex       sync.RWMutex
+	containsMultipleAppsArgsForCall []struct {
+	}
+	containsMultipleAppsReturns struct {
+		result1 bool
+	}
+	containsMultipleAppsReturnsOnCall map[int]struct {
+		result1 bool
+	}
 	FullRawManifestStub        func() []byte
 	fullRawManifestMutex       sync.RWMutex
 	fullRawManifestArgsForCall []struct {
@@ -174,6 +184,58 @@ func (fake *FakeManifestParser) ContainsManifestReturnsOnCall(i int, result1 boo
 	}{result1}
 }
 
+func (fake *FakeManifestParser) ContainsMultipleApps() bool {
+	fake.containsMultipleAppsMutex.Lock()
+	ret, specificReturn := fake.containsMultipleAppsReturnsOnCall[len(fake.containsMultipleAppsArgsForCall)]
+	fake.containsMultipleAppsArgsForCall = append(fake.containsMultipleAppsArgsForCall, struct {
+	}{})
+	fake.recordInvocation("ContainsMultipleApps", []interface{}{})
+	fake.containsMultipleAppsMutex.Unlock()
+	if fake.ContainsMultipleAppsStub != nil {
+		return fake.ContainsMultipleAppsStub()
+	}
+	if specificReturn {
+		return ret.result1
+	}
+	fakeReturns := fake.containsMultipleAppsReturns
+	return fakeReturns.result1
+}
+
+func (fake *FakeManifestParser) ContainsMultipleAppsCallCount() int {
+	fake.containsMultipleAppsMutex.RLock()
+	defer fake.containsMultipleAppsMutex.RUnlock()
+	return len(fake.containsMultipleAppsArgsForCall)
+}
+
+func (fake *FakeManifestParser) ContainsMultipleAppsCalls(stub func() bool) {
+	fake.containsMultipleAppsMutex.Lock()
+	defer fake.containsMultipleAppsMutex.Unlock()
+	fake.ContainsMultipleAppsStub = stub
+}
+
+func (fake *FakeManifestParser) ContainsMultipleAppsReturns(result1 bool) {
+	fake.containsMultipleAppsMutex.Lock()
+	defer fake.containsMultipleAppsMutex.Unlock()
+	fake.ContainsMultipleAppsStub = nil
+	fake.containsMultipleAppsReturns = struct {
+		result1 bool
+	}{result1}
+}
+
+func (fake *FakeManifestParser) ContainsMultipleAppsReturnsOnCall(i int, result1 bool) {
+	fake.containsMultipleAppsMutex.Lock()
+	defer fake.containsMultipleAppsMutex.Unlock()
+	fake.ContainsMultipleAppsStub = nil
+	if fake.containsMultipleAppsReturnsOnCall == nil {
+		fake.containsMultipleAppsReturnsOnCall = make(map[int]struct {
+			result1 bool
+		})
+	}
+	fake.containsMultipleAppsReturnsOnCall[i] = struct {
+		result1 bool
+	}{result1}
+}
+
 func (fake *FakeManifestParser) FullRawManifest() []byte {
 	fake.fullRawManifestMutex.Lock()
 	ret, specificReturn := fake.fullRawManifestReturnsOnCall[len(fake.fullRawManifestArgsForCall)]
@@ -296,6 +358,8 @@ func (fake *FakeManifestParser) Invocations() map[string][][]interface{} {
 	defer fake.appsMutex.RUnlock()
 	fake.containsManifestMutex.RLock()
 	defer fake.containsManifestMutex.RUnlock()
+	fake.containsMultipleAppsMutex.RLock()
+	defer fake.containsMultipleAppsMutex.RUnlock()
 	fake.fullRawManifestMutex.RLock()
 	defer fake.fullRawManifestMutex.RUnlock()
 	fake.rawAppManifestMutex.RLock()

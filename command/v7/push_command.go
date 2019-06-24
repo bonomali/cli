@@ -58,7 +58,6 @@ type V7ActorForPush interface {
 
 type ManifestParser interface {
 	v7pushaction.ManifestParser
-	ContainsMultipleApps() bool
 	InterpolateAndParse(pathToManifest string, pathsToVarsFiles []string, vars []template.VarKV) error
 	ContainsPrivateDockerImages() bool
 }

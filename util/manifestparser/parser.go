@@ -144,9 +144,10 @@ func (parser *Parser) parse(manifestBytes []byte) error {
 	}
 
 	for index, application := range parser.Applications {
-		if application.Name == "" {
-			return errors.New("Found an application with no name specified")
-		}
+		// TODO [ls, cs]: Removing this doesn't break any unit tests.
+		// if application.Name == "" {
+		// 	return errors.New("Found an application with no name specified")
+		// }
 
 		if application.Path == "" {
 			continue

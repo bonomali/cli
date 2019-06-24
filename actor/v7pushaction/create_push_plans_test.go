@@ -62,6 +62,85 @@ var _ = Describe("CreatePushPlans", func() {
 	}
 
 	Describe("Manifest", func() {
+		When("There is a single app", func() {
+			BeforeEach(func() {
+				fakeManifestParser.AppsReturns([]manifestparser.Application{
+					{
+						ApplicationModel: manifestparser.ApplicationModel{
+							Name: "manifest-app-name",
+						},
+						FullUnmarshalledApplication: nil,
+					},
+				}, nil)
+
+				fakeManifestParser.ContainsManifestReturns(true)
+				fakeManifestParser.ContainsMultipleAppsReturns(false)
+			})
+
+			When("There is an appName specified", func() {
+				BeforeEach(func() {
+					appNameArg = "command-line-app-name"
+				})
+
+				When("The appName specified does not match the manifest app name", func() {
+					AssertNoExecuteErr()
+					AssertPushPlanLength(1)
+
+					It("prefers the specified appName", func() {
+						Expect(pushPlans[0].Application.Name).To(Equal("command-line-app-name"))
+					})
+				})
+
+				When("The app does *not* have a name in the manifest", func() {
+					BeforeEach(func() {
+						fakeManifestParser.AppsReturns([]manifestparser.Application{
+							{
+								FullUnmarshalledApplication: nil,
+							},
+						}, nil)
+					})
+
+					AssertNoExecuteErr()
+					AssertPushPlanLength(1)
+
+					It("uses the provided app name argument", func() {
+						Expect(pushPlans[0].Application.Name).To(Equal("command-line-app-name"))
+					})
+				})
+			})
+
+			When("The appName is *not* specified", func() {
+				BeforeEach(func() {
+					appNameArg = ""
+				})
+
+				When("The app has a name in the manifest", func() {
+					AssertNoExecuteErr()
+					AssertPushPlanLength(1)
+
+					It("uses the manifest name", func() {
+						Expect(pushPlans[0].Application.Name).To(Equal("manifest-app-name"))
+					})
+				})
+
+				When("The app does *not* have a name in the manifest", func() {
+					BeforeEach(func() {
+						fakeManifestParser.AppsReturns([]manifestparser.Application{
+							{
+								FullUnmarshalledApplication: nil,
+							},
+						}, nil)
+					})
+
+					AssertPushPlanLength(0)
+
+					It("returns an error", func() {
+						Expect(executeErr).To(MatchError("hummm, no?"))
+					})
+				})
+			})
+		})
+
 		When("There are multiple apps", func() {
 			BeforeEach(func() {
 				fakeManifestParser.AppsReturns([]manifestparser.Application{
@@ -80,6 +159,7 @@ var _ = Describe("CreatePushPlans", func() {
 				}, nil)
 
 				fakeManifestParser.ContainsManifestReturns(true)
+				fakeManifestParser.ContainsMultipleAppsReturns(true)
 
 				appNameArg = ""
 			})
@@ -107,6 +187,7 @@ var _ = Describe("CreatePushPlans", func() {
 					Expect(executeErr).To(MatchError(manifestparser.AppNotInManifestError{Name: appNameArg}))
 				})
 			})
+
 			When("And that appName is present in the manifest", func() {
 				BeforeEach(func() {
 					fakeManifestParser.AppsReturns([]manifestparser.Application{
