@@ -24,6 +24,18 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:3a37dbf0d1953b95ec5a13b9e1ba2a3c49fa46ba2b809dee2252017746be444b"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+  ]
+  pruneopts = "NUT"
+  revision = "5f9ff16f99a0345f98f147765db0e36aef91c795"
+  version = "v6.45.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -47,15 +59,16 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:412001a3e6d850b82d4109e8bbbf1795a78d2f7616d36beacd67d0b1e32ebaa0"
+  digest = "1:6f3a1d15b44384f01a8f59ba7c71bd82275a43db6194ce8073e14fd13751eed9"
   name = "code.cloudfoundry.org/lager"
   packages = [
     ".",
+    "internal/truncate",
     "lagerctx",
     "lagertest",
   ]
   pruneopts = "NUT"
-  revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+  revision = "54c4f2530ddeb742ce9c9ee26f5fa758d6c1b3b6"
 
 [[projects]]
   branch = "master"
