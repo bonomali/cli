@@ -24,6 +24,18 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:60b1695f63dd8f2427bebfd8fe9fc96b61b268fefa48b26ba6c74e23ef18785f"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+  ]
+  pruneopts = "NUT"
+  revision = "29d6257f1a0acdb6182f8d1faaf89a37de552434"
+  version = "v6.46.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -472,7 +484,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:276556ec29ad295168d8f07a1b432584396e196340a4797f7518f1aac6f3582d"
+  digest = "1:43941b94faf561f53c33d94aa27129c402be5c5021e08a88b9888414d1b03ec0"
   name = "golang.org/x/net"
   packages = [
     "html",
@@ -483,7 +495,7 @@
     "websocket",
   ]
   pruneopts = "NUT"
-  revision = "15845e8f865bdabdefb6e7da65b4d9e8de5e94ef"
+  revision = "74dc4d7220e7acc4e100824340f3e66577424772"
 
 [[projects]]
   branch = "master"
