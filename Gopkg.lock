@@ -24,6 +24,18 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:5579d171c21fa6078ed325bc11b689d5ea406ad73e1428bbcc2f662cb1703969"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+  ]
+  pruneopts = "NUT"
+  revision = "d526c2cb3061d60f05dfff04f5e0ddc011344d1f"
+  version = "v6.47.2"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -342,7 +354,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:7783a63b27d2e15de3ad32aaade701bd30312305687f7abb0f49efc49956a5d4"
+  digest = "1:f2482167724b8510fb2dcac2fff27213ef9dd3863a7620652e24ee56475b64f4"
   name = "github.com/onsi/ginkgo"
   packages = [
     ".",
@@ -366,7 +378,7 @@
     "types",
   ]
   pruneopts = "NUT"
-  revision = "0d4f08024c0112cfde4b94bc45e25777eedb4561"
+  revision = "3cfa02ded2d565a682638855d5f40dd9e00b6394"
 
 [[projects]]
   branch = "master"
