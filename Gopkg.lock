@@ -24,6 +24,22 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:601471cd657f291ba99a3bfdd2e27e9ef7dc585389343accd4bb715afc9eedd8"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "actor/actionerror",
+    "api/cloudcontroller/ccv2/constant",
+    "api/cloudcontroller/ccv3/constant",
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+    "util",
+  ]
+  pruneopts = "NUT"
+  revision = "4f0c3a2ce92986be5856c297c26eab3acc262009"
+  version = "v6.50.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -56,6 +72,14 @@
   ]
   pruneopts = "NUT"
   revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:01b441faa3ff0ad22ace4d3583b2d6d1e27bee4efb8b9024f23c2688b622ed42"
+  name = "code.cloudfoundry.org/tlsconfig"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "bbe0f8da39b3c59d42217afcc79019c754dabdfb"
 
 [[projects]]
   branch = "master"
@@ -342,7 +366,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:7783a63b27d2e15de3ad32aaade701bd30312305687f7abb0f49efc49956a5d4"
+  digest = "1:fb3c4a87551b445e0469183e8735ed06a96ff6ae636f4462b53536bf12b5b0a0"
   name = "github.com/onsi/ginkgo"
   packages = [
     ".",
@@ -366,7 +390,7 @@
     "types",
   ]
   pruneopts = "NUT"
-  revision = "0d4f08024c0112cfde4b94bc45e25777eedb4561"
+  revision = "b8861366892e5d67a347e72ce9124b59e13de51b"
 
 [[projects]]
   branch = "master"
