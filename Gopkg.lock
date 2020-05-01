@@ -24,6 +24,23 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:81f719d050d126e10640a5080f0f9d0fe1c474c232b9194cfb65e3e1a843ad1f"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "actor/actionerror",
+    "api/cloudcontroller/ccerror",
+    "api/cloudcontroller/ccv2/constant",
+    "api/cloudcontroller/ccv3/constant",
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+    "util",
+  ]
+  pruneopts = "NUT"
+  revision = "2acd15650eef815159ecd5a83d021ac456280729"
+  version = "v6.51.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -56,6 +73,14 @@
   ]
   pruneopts = "NUT"
   revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:01b441faa3ff0ad22ace4d3583b2d6d1e27bee4efb8b9024f23c2688b622ed42"
+  name = "code.cloudfoundry.org/tlsconfig"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "bbe0f8da39b3c59d42217afcc79019c754dabdfb"
 
 [[projects]]
   branch = "master"
@@ -147,7 +172,7 @@
   name = "github.com/cloudfoundry/cli-plugin-repo"
   packages = ["web"]
   pruneopts = "NUT"
-  revision = "e3bb94a32f8ffc29d1040354d8f081b07dc6e489"
+  revision = "e46fd87ca940f93c189207829cb43a7c5047e31c"
 
 [[projects]]
   branch = "master"
