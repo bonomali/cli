@@ -24,6 +24,23 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:81f719d050d126e10640a5080f0f9d0fe1c474c232b9194cfb65e3e1a843ad1f"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "actor/actionerror",
+    "api/cloudcontroller/ccerror",
+    "api/cloudcontroller/ccv2/constant",
+    "api/cloudcontroller/ccv3/constant",
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+    "util",
+  ]
+  pruneopts = "NUT"
+  revision = "2acd15650eef815159ecd5a83d021ac456280729"
+  version = "v6.51.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -56,6 +73,14 @@
   ]
   pruneopts = "NUT"
   revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:01b441faa3ff0ad22ace4d3583b2d6d1e27bee4efb8b9024f23c2688b622ed42"
+  name = "code.cloudfoundry.org/tlsconfig"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "bbe0f8da39b3c59d42217afcc79019c754dabdfb"
 
 [[projects]]
   branch = "master"
@@ -302,11 +327,11 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:9785a54031460a402fab4e4bbb3124c8dd9e9f7b1982109fef605cb91632d480"
+  digest = "1:90c4084463d71ffa78e40aca65ee733677527f0b0254ab6bb89cfeb8b73a7af5"
   name = "github.com/mattn/go-colorable"
   packages = ["."]
   pruneopts = "NUT"
-  revision = "efa589957cd060542a26d2dd7832fd6a6c6c3ade"
+  revision = "f1b5a0ed4603826971e6d07195710bbc9ed74df6"
 
 [[projects]]
   digest = "1:bc4f7eec3b7be8c6cb1f0af6c1e3333d5bb71072951aaaae2f05067b0803f287"
