@@ -102,6 +102,7 @@ required = ["github.com/gorilla/websocket"]
 [[constraint]]
   branch = "master"
   name = "github.com/mattn/go-colorable"
+  version = "^0.1.8"
 
 [[constraint]]
   branch = "master"
