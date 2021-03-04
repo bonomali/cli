@@ -24,6 +24,23 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:ecc556f07aa2bcfa733f3740b1778447ef89c9964d21ab56502a0f6914bd675a"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "actor/actionerror",
+    "api/cloudcontroller/ccerror",
+    "api/cloudcontroller/ccv2/constant",
+    "api/cloudcontroller/ccv3/constant",
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+    "util",
+  ]
+  pruneopts = "NUT"
+  revision = "be4a5ce2b96eb29888f44abf1648bc0176753c0b"
+  version = "v7.2.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -56,6 +73,14 @@
   ]
   pruneopts = "NUT"
   revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:01b441faa3ff0ad22ace4d3583b2d6d1e27bee4efb8b9024f23c2688b622ed42"
+  name = "code.cloudfoundry.org/tlsconfig"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "bbe0f8da39b3c59d42217afcc79019c754dabdfb"
 
 [[projects]]
   branch = "master"
@@ -214,6 +239,14 @@
   revision = "5df930a27be2502f99b292b7cc09ebad4d0891f4"
 
 [[projects]]
+  digest = "1:0914bf7efc3e3052163e92b859a89f3b407ad353d7c3b7f59a1bbb4fd05bb25d"
+  name = "github.com/fsnotify/fsnotify"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "45d7d09e39ef4ac08d493309fa031790c15bfe8a"
+  version = "v1.4.9"
+
+[[projects]]
   branch = "master"
   digest = "1:0a0ef0f4f66e63db86dc2f865bdede9c9902976e86ecf02173ed559b765f99d2"
   name = "github.com/gogo/protobuf"
@@ -248,20 +281,6 @@
   packages = ["."]
   pruneopts = "NUT"
   revision = "b89020ee79b89a7f932c5617d218fc06db382f53"
-
-[[projects]]
-  digest = "1:41933d387bfa3eaa6a82647914ed7044f7b8355764c24fb920892bc8c03ef0c3"
-  name = "github.com/hpcloud/tail"
-  packages = [
-    ".",
-    "ratelimiter",
-    "util",
-    "watch",
-    "winfile",
-  ]
-  pruneopts = "NUT"
-  revision = "a30252cb686a21eb2d0b98132633053ec2f7f1e5"
-  version = "v1.0.0"
 
 [[projects]]
   branch = "master"
@@ -341,8 +360,22 @@
   revision = "179d4d0c4d8d407a32af483c2354df1d2c91e6c3"
 
 [[projects]]
+  digest = "1:85d886fe78a7da9d756d4648297c3b2ea770c9e5c728eb28d0191a63c2275bda"
+  name = "github.com/nxadm/tail"
+  packages = [
+    ".",
+    "ratelimiter",
+    "util",
+    "watch",
+    "winfile",
+  ]
+  pruneopts = "NUT"
+  revision = "abad231d8d07ef91e09cd4c4c457cac35ed3bbb9"
+  version = "v1.4.8"
+
+[[projects]]
   branch = "master"
-  digest = "1:7783a63b27d2e15de3ad32aaade701bd30312305687f7abb0f49efc49956a5d4"
+  digest = "1:3685082a407fb08d52754a5583a7316668fddeaa84be6d0162ff01b27d867d93"
   name = "github.com/onsi/ginkgo"
   packages = [
     ".",
@@ -351,6 +384,7 @@
     "internal/codelocation",
     "internal/containernode",
     "internal/failer",
+    "internal/global",
     "internal/leafnodes",
     "internal/remote",
     "internal/spec",
@@ -366,7 +400,7 @@
     "types",
   ]
   pruneopts = "NUT"
-  revision = "0d4f08024c0112cfde4b94bc45e25777eedb4561"
+  revision = "dbafd0c50bd917f761b333140c58abb6d1a707f9"
 
 [[projects]]
   branch = "master"
@@ -532,15 +566,6 @@
   pruneopts = "NUT"
   revision = "1cc5bbe20449079337944d56292c7383510c534c"
   version = "v1.0.27"
-
-[[projects]]
-  digest = "1:1b91ae0dc69a41d4c2ed23ea5cffb721ea63f5037ca4b81e6d6771fbb8f45129"
-  name = "gopkg.in/fsnotify.v1"
-  packages = ["."]
-  pruneopts = "NUT"
-  revision = "c2828203cd70a50dcccfb2761f8b1f8ceef9a8e9"
-  source = "https://github.com/fsnotify/fsnotify/archive/v1.4.7.tar.gz"
-  version = "v1.4.7"
 
 [[projects]]
   branch = "v1"
