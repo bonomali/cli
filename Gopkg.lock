@@ -24,6 +24,23 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:ecc556f07aa2bcfa733f3740b1778447ef89c9964d21ab56502a0f6914bd675a"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "actor/actionerror",
+    "api/cloudcontroller/ccerror",
+    "api/cloudcontroller/ccv2/constant",
+    "api/cloudcontroller/ccv3/constant",
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+    "util",
+  ]
+  pruneopts = "NUT"
+  revision = "be4a5ce2b96eb29888f44abf1648bc0176753c0b"
+  version = "v7.2.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -56,6 +73,14 @@
   ]
   pruneopts = "NUT"
   revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:f2267f1d183f55669480c0d1a8ed2e47b8c9f049504c55eb9708f44b99446060"
+  name = "code.cloudfoundry.org/tlsconfig"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "5d92ef3894a7418868941523abb8a72092534635"
 
 [[projects]]
   branch = "master"
@@ -472,7 +497,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:276556ec29ad295168d8f07a1b432584396e196340a4797f7518f1aac6f3582d"
+  digest = "1:e54d1c3e7681b8fd1daeb0c2884c523bca015647eeba9d736fe3eba0e16b2309"
   name = "golang.org/x/net"
   packages = [
     "html",
@@ -483,7 +508,7 @@
     "websocket",
   ]
   pruneopts = "NUT"
-  revision = "15845e8f865bdabdefb6e7da65b4d9e8de5e94ef"
+  revision = "04defd469f4e290175cd2fb95a0e5f235f9bf173"
 
 [[projects]]
   branch = "master"
