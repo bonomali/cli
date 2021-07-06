@@ -24,6 +24,23 @@
   revision = "4b04f26287a67f2b08e92187fc03e7946f8f99f7"
 
 [[projects]]
+  digest = "1:ecc556f07aa2bcfa733f3740b1778447ef89c9964d21ab56502a0f6914bd675a"
+  name = "code.cloudfoundry.org/cli"
+  packages = [
+    "actor/actionerror",
+    "api/cloudcontroller/ccerror",
+    "api/cloudcontroller/ccv2/constant",
+    "api/cloudcontroller/ccv3/constant",
+    "api/uaa",
+    "api/uaa/constant",
+    "api/uaa/internal",
+    "util",
+  ]
+  pruneopts = "NUT"
+  revision = "be4a5ce2b96eb29888f44abf1648bc0176753c0b"
+  version = "v7.2.0"
+
+[[projects]]
   digest = "1:286c64923387f8c88d79d737547f3dbc70e9d7e1343e9769c84e4647aac31aaa"
   name = "code.cloudfoundry.org/diego-ssh"
   packages = [
@@ -56,6 +73,14 @@
   ]
   pruneopts = "NUT"
   revision = "0bfa98e49e7a976af91e918d47978f07c00b081f"
+
+[[projects]]
+  branch = "master"
+  digest = "1:f2267f1d183f55669480c0d1a8ed2e47b8c9f049504c55eb9708f44b99446060"
+  name = "code.cloudfoundry.org/tlsconfig"
+  packages = ["."]
+  pruneopts = "NUT"
+  revision = "5d92ef3894a7418868941523abb8a72092534635"
 
 [[projects]]
   branch = "master"
@@ -215,7 +240,7 @@
 
 [[projects]]
   branch = "master"
-  digest = "1:0a0ef0f4f66e63db86dc2f865bdede9c9902976e86ecf02173ed559b765f99d2"
+  digest = "1:fd9a64a91b13d97a94f78583aaedd0798748cc90f1fd17e23cb558d466da0503"
   name = "github.com/gogo/protobuf"
   packages = [
     "gogoproto",
@@ -223,7 +248,7 @@
     "protoc-gen-gogo/descriptor",
   ]
   pruneopts = "NUT"
-  revision = "616a82ed12d78d24d4839363e8f3c5d3f20627cf"
+  revision = "226206f39bd7276e88ec684ea0028c18ec2c91ae"
 
 [[projects]]
   branch = "master"
